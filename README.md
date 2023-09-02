@@ -1,10 +1,10 @@
-# Java MVC Application
+# Java-Swing-MVC
 
 ## Author
 
 Hao Jin
 
 ## Description
+This repository hosts a collection of multi-folders MVC (Model-View-Controller) implementations for various challenges from LeetCode and academic projects.
 
-This is a Java application collection. 
 Feel free to explore each project inside.
