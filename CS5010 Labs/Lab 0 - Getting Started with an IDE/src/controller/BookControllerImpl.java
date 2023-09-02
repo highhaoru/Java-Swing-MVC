@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.person.BookImpl;
-import view.BookView;
+import view.BookViewImpl;
 
 /**
  * This class acts as the controller for the Book model and Book view.
@@ -13,11 +13,11 @@ import view.BookView;
  */
 public class BookControllerImpl implements BookController {
   private final BookImpl book;
-  private final BookView bookView;
+  private final BookViewImpl bookViewImpl;
 
-  public BookControllerImpl(BookImpl book, BookView bookView) {
+  public BookControllerImpl(BookImpl book, BookViewImpl bookViewImpl) {
     this.book = book;
-    this.bookView = bookView;
+    this.bookViewImpl = bookViewImpl;
   }
 
   /**
@@ -25,21 +25,21 @@ public class BookControllerImpl implements BookController {
    */
   @Override
   public void init() {
-    this.bookView.addUpdateButtonListener(new UpdateButtonListener());
+    this.bookViewImpl.addUpdateButtonListener(new UpdateButtonListener());
   }
 
   class UpdateButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       try {
-        book.setTitle(bookView.getTitle());
-        book.setPrice(bookView.getPrice());
-        bookView.setTitle(book.getTitle());
-        bookView.setPrice(book.getPrice());
+        book.setTitle(bookViewImpl.getTitle());
+        book.setPrice(bookViewImpl.getPrice());
+        bookViewImpl.setTitle(book.getTitle());
+        bookViewImpl.setPrice(book.getPrice());
 
         JOptionPane.showMessageDialog(null, "Update successful!");
       } catch (Exception ex) {
-        bookView.displayErrorMessage("Error updating book details");
-        bookView.getUpdatedInfoLabel().setText("Updated Book: " + book.getTitle()
+        bookViewImpl.displayErrorMessage("Error updating book details");
+        bookViewImpl.getUpdatedInfoLabel().setText("Updated Book: " + book.getTitle()
             + " " + book.getPrice());
       }
     }

@@ -1,65 +1,70 @@
 package view;
 
-import java.awt.Component;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
- * This class represents the view for the Book model.
+ * This interface represents the view for the Book model.
+ *
  * @author Hao Jin
  */
-public class BookView {
-  private JLabel titleLabel = new JLabel("Title:");
-  private JTextField titleTextField = new JTextField(10);
-  private JLabel priceLabel = new JLabel("Price:");
-  private JTextField priceTextField = new JTextField(10);
-  private JButton updateButton = new JButton("Update");
-  private JLabel updatedInfoLabel = new JLabel("");
-  private JPanel mainPanel = new JPanel();
+public interface BookView {
 
-  public BookView() {
-    mainPanel.add(titleLabel);
-    mainPanel.add(titleTextField);
-    mainPanel.add(priceLabel);
-    mainPanel.add(priceTextField);
-    mainPanel.add(updateButton);
-    mainPanel.add(updatedInfoLabel);
-  }
+  /**
+   * Gets the title from the view's text field.
+   *
+   * @return the title of the book as a String
+   */
+  String getTitle();
 
-  public String getTitle() {
-    return titleTextField.getText();
-  }
+  /**
+   * Sets the title in the view's text field.
+   *
+   * @param title the new title of the book
+   */
+  void setTitle(String title);
 
-  public float getPrice() {
-    return Float.parseFloat(priceTextField.getText());
-  }
+  /**
+   * Gets the price from the view's text field.
+   *
+   * @return the price of the book as a float
+   */
+  float getPrice();
 
-  public void setTitle(String title) {
-    titleTextField.setText(title);
-  }
+  /**
+   * Sets the price in the view's text field.
+   *
+   * @param price the new price of the book
+   */
+  void setPrice(float price);
 
-  public void setPrice(float price) {
-    priceTextField.setText(Float.toString(price));
-  }
+  /**
+   * Adds an ActionListener for the update button in the view.
+   *
+   * @param listenForUpdateButton the ActionListener for the update button
+   */
+  void addUpdateButtonListener(ActionListener listenForUpdateButton);
 
-  public void addUpdateButtonListener(ActionListener listenForUpdateButton) {
-    updateButton.addActionListener(listenForUpdateButton);
-  }
+  /**
+   * Displays an error message using a JOptionPane.
+   *
+   * @param errorMessage the error message to display
+   */
+  void displayErrorMessage(String errorMessage);
 
-  public void displayErrorMessage(String errorMessage) {
-    JOptionPane.showMessageDialog(null, errorMessage);
-  }
+  /**
+   * Gets the main JPanel containing all UI components.
+   *
+   * @return the main JPanel
+   */
+  JPanel getMainPanel();
 
-  public JPanel getMainPanel() {
-    return mainPanel;
-  }
-
-  public JLabel getUpdatedInfoLabel() {
-    return updatedInfoLabel;
-  }
+  /**
+   * Gets the JLabel used for displaying updated information.
+   *
+   * @return the JLabel for updated information
+   */
+  JLabel getUpdatedInfoLabel();
 }
+

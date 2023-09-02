@@ -1,77 +1,83 @@
 package view;
 
-import java.awt.Component;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
- * This class represents the view for the Person model.
+ * This interface represents the view for the Person model.
+ *
  * @author Hao Jin
  */
-public class PersonView {
-  private JLabel firstNameLabel = new JLabel("First Name:");
-  private JTextField firstNameTextField = new JTextField(10);
-  private JLabel lastNameLabel = new JLabel("Last Name:");
-  private JTextField lastNameTextField = new JTextField(10);
-  private JLabel yearOfBirthLabel = new JLabel("Year of Birth:");
-  private JTextField yearOfBirthTextField = new JTextField(10);
-  private JButton updateButton = new JButton("Update");
-  private JLabel updatedInfoLabel = new JLabel("");
-  private JPanel mainPanel = new JPanel();
+public interface PersonView {
 
-  public PersonView() {
-    mainPanel.add(firstNameLabel);
-    mainPanel.add(firstNameTextField);
-    mainPanel.add(lastNameLabel);
-    mainPanel.add(lastNameTextField);
-    mainPanel.add(yearOfBirthLabel);
-    mainPanel.add(yearOfBirthTextField);
-    mainPanel.add(updateButton);
-    mainPanel.add(updatedInfoLabel);
-  }
+  /**
+   * Gets the first name from the view's text field.
+   *
+   * @return the first name of the person as a String
+   */
+  String getFirstName();
 
-  public String getFirstName() {
-    return firstNameTextField.getText();
-  }
+  /**
+   * Sets the first name in the view's text field.
+   *
+   * @param firstName the new first name of the person
+   */
+  void setFirstName(String firstName);
 
-  public String getLastName() {
-    return lastNameTextField.getText();
-  }
+  /**
+   * Gets the last name from the view's text field.
+   *
+   * @return the last name of the person as a String
+   */
+  String getLastName();
 
-  public int getYearOfBirth() {
-    return Integer.parseInt(yearOfBirthTextField.getText());
-  }
+  /**
+   * Sets the last name in the view's text field.
+   *
+   * @param lastName the new last name of the person
+   */
+  void setLastName(String lastName);
 
-  public void setFirstName(String firstName) {
-    firstNameTextField.setText(firstName);
-  }
+  /**
+   * Gets the year of birth from the view's text field.
+   *
+   * @return the year of birth of the person as an int
+   */
+  int getYearOfBirth();
 
-  public void setLastName(String lastName) {
-    lastNameTextField.setText(lastName);
-  }
+  /**
+   * Sets the year of birth in the view's text field.
+   *
+   * @param yearOfBirth the new year of birth of the person
+   */
+  void setYearOfBirth(int yearOfBirth);
 
-  public void setYearOfBirth(int yearOfBirth) {
-    yearOfBirthTextField.setText(Integer.toString(yearOfBirth));
-  }
+  /**
+   * Adds an ActionListener for the update button in the view.
+   *
+   * @param listenForUpdateButton the ActionListener for the update button
+   */
+  void addUpdateButtonListener(ActionListener listenForUpdateButton);
 
-  public void addUpdateButtonListener(ActionListener listenForUpdateButton) {
-    updateButton.addActionListener(listenForUpdateButton);
-  }
+  /**
+   * Displays an error message using a JOptionPane.
+   *
+   * @param errorMessage the error message to display
+   */
+  void displayErrorMessage(String errorMessage);
 
-  public void displayErrorMessage(String errorMessage) {
-    JOptionPane.showMessageDialog(null, errorMessage);
-  }
+  /**
+   * Gets the main JPanel containing all UI components.
+   *
+   * @return the main JPanel
+   */
+  JPanel getMainPanel();
 
-  public JPanel getMainPanel() {
-    return mainPanel;
-  }
-
-  public JLabel getUpdatedInfoLabel() {
-    return updatedInfoLabel;
-  }
+  /**
+   * Gets the JLabel used for displaying updated information.
+   *
+   * @return the JLabel for updated information
+   */
+  JLabel getUpdatedInfoLabel();
 }

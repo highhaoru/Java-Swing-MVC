@@ -2,7 +2,7 @@ package controller;
 
 import javax.swing.JOptionPane;
 import model.person.PersonImpl;
-import view.PersonView;
+import view.PersonViewImpl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,11 +13,11 @@ import java.awt.event.ActionListener;
  */
 public class PersonControllerImpl implements PersonController {
   private final PersonImpl personImpl;
-  private final PersonView personView;
+  private final PersonViewImpl personViewImpl;
 
-  public PersonControllerImpl(PersonImpl personImpl, PersonView personView) {
+  public PersonControllerImpl(PersonImpl personImpl, PersonViewImpl personViewImpl) {
     this.personImpl = personImpl;
-    this.personView = personView;
+    this.personViewImpl = personViewImpl;
   }
 
   /**
@@ -25,24 +25,24 @@ public class PersonControllerImpl implements PersonController {
    */
   @Override
   public void init() {
-    this.personView.addUpdateButtonListener(new UpdateButtonListener());
+    this.personViewImpl.addUpdateButtonListener(new UpdateButtonListener());
   }
 
   class UpdateButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
       try {
-        personImpl.setFirstName(personView.getFirstName());
-        personImpl.setLastName(personView.getLastName());
-        personImpl.setYearOfBirth(personView.getYearOfBirth());
+        personImpl.setFirstName(personViewImpl.getFirstName());
+        personImpl.setLastName(personViewImpl.getLastName());
+        personImpl.setYearOfBirth(personViewImpl.getYearOfBirth());
         // Update the view to reflect changes in the model
-        personView.setFirstName(personImpl.getFirstName());
-        personView.setLastName(personImpl.getLastName());
-        personView.setYearOfBirth(personImpl.getYearOfBirth());
+        personViewImpl.setFirstName(personImpl.getFirstName());
+        personViewImpl.setLastName(personImpl.getLastName());
+        personViewImpl.setYearOfBirth(personImpl.getYearOfBirth());
 
         JOptionPane.showMessageDialog(null, "Update successful!");
       } catch (Exception ex) {
-        personView.displayErrorMessage("Error updating person details");
-        personView.getUpdatedInfoLabel().setText("Updated Person: " + personImpl.getFirstName()
+        personViewImpl.displayErrorMessage("Error updating person details");
+        personViewImpl.getUpdatedInfoLabel().setText("Updated Person: " + personImpl.getFirstName()
             + " " + personImpl.getLastName() + ", Year of Birth: " + personImpl.getYearOfBirth());
       }
     }
