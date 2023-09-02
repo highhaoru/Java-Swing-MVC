@@ -1,25 +1,38 @@
+import controller.BookControllerImpl;
+import controller.PersonControllerImpl;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import model.person.PersonImpl;
 import model.person.BookImpl;
-import view.PersonViewImpl;
+import model.person.PersonImpl;
 import view.BookViewImpl;
-import controller.PersonControllerImpl;
-import controller.BookControllerImpl;
+import view.PersonViewImpl;
 
 /**
  * The main entry point for the application.
+ *
  * @author Hao Jin
  */
 public class Main {
+
+  /**
+   * The main entry point for the application.
+   *
+   * <p>This method initializes the models, views,
+   *        and controllers for both Person and Book entities.
+   * It then combines their respective views into an integrated JFrame,
+   *        allowing the user to interact with both entities through a single UI window.
+   * </p>
+   *
+   * @param args The command-line arguments. Currently not being used.
+   */
   public static void main(String[] args) {
     // Create models
-    PersonImpl personImpl = new PersonImpl("John", "Doe",1696);
-    BookImpl bookImpl = new BookImpl("Example Book", personImpl, 19.99f);
+    PersonImpl personImpl = new PersonImpl("John", "Doe", 1696);
+    final BookImpl bookImpl = new BookImpl("Example Book", personImpl, 19.99f);
 
     // Create views
     PersonViewImpl personViewImpl = new PersonViewImpl();
-    BookViewImpl bookViewImpl = new BookViewImpl();
+    final BookViewImpl bookViewImpl = new BookViewImpl();
 
     personViewImpl.setFirstName(personImpl.getFirstName());
     personViewImpl.setLastName(personImpl.getLastName());
@@ -29,7 +42,8 @@ public class Main {
     bookViewImpl.setPrice(bookImpl.getPrice());
 
     // Create controllers
-    PersonControllerImpl personControllerImpl = new PersonControllerImpl(personImpl, personViewImpl);
+    PersonControllerImpl personControllerImpl =
+        new PersonControllerImpl(personImpl, personViewImpl);
     BookControllerImpl bookControllerImpl = new BookControllerImpl(bookImpl, bookViewImpl);
 
     // Initialize controllers
@@ -42,8 +56,12 @@ public class Main {
     integratedView.setSize(800, 300);
 
     JPanel panel = new JPanel();
-    panel.add(personViewImpl.getMainPanel());  // Assuming getMainPanel() returns the main JPanel of PersonView
-    panel.add(bookViewImpl.getMainPanel());  // Assuming getMainPanel() returns the main JPanel of BookView
+    panel.add(
+        // Assuming getMainPanel() returns the main JPanel of PersonView
+        personViewImpl.getMainPanel());
+    panel.add(
+        // Assuming getMainPanel() returns the main JPanel of BookView
+        bookViewImpl.getMainPanel());
 
     integratedView.add(panel);
 
