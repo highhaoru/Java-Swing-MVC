@@ -1,10 +1,10 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import model.person.PersonImpl;
 import view.PersonViewImpl;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * This class acts as the controller for the Person model and Person view.

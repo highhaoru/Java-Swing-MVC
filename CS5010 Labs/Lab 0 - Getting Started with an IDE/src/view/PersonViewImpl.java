@@ -12,17 +12,21 @@ import javax.swing.JTextField;
  *
  * @author Hao Jin
  */
-public class PersonViewImpl implements PersonView{
+public class PersonViewImpl implements PersonView {
   private final JLabel firstNameLabel = new JLabel("First Name:");
   private final JTextField firstNameTextField = new JTextField(10);
   private final JLabel lastNameLabel = new JLabel("Last Name:");
-  private final  JTextField lastNameTextField = new JTextField(10);
-  private final  JLabel yearOfBirthLabel = new JLabel("Year of Birth:");
-  private final  JTextField yearOfBirthTextField = new JTextField(10);
-  private final  JButton updateButton = new JButton("Update");
-  private final  JLabel updatedInfoLabel = new JLabel("");
-  private final  JPanel mainPanel = new JPanel();
+  private final JTextField lastNameTextField = new JTextField(10);
+  private final JLabel yearOfBirthLabel = new JLabel("Year of Birth:");
+  private final JTextField yearOfBirthTextField = new JTextField(10);
+  private final JButton updateButton = new JButton("Update");
+  private final JLabel updatedInfoLabel = new JLabel("");
+  private final JPanel mainPanel = new JPanel();
 
+  /**
+   * Constructs a new PersonViewImpl object and initializes the UI components.
+   * This includes adding various labels, text fields, and buttons to the main panel.
+   */
   public PersonViewImpl() {
     mainPanel.add(firstNameLabel);
     mainPanel.add(firstNameTextField);
