@@ -54,8 +54,6 @@ public interface WeatherView {
    */
   String getDewPointFieldText();
 
-  // ... (more getters for other input fields)
-
   /**
    * Sets the Heat Index label on the view.
    *
