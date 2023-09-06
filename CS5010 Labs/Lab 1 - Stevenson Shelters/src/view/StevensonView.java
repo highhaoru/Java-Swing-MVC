@@ -56,8 +56,8 @@ public class StevensonView implements WeatherView {
 
 @Override
   public void setWeatherReading(WeatherReading reading) {
-    temperatureField.setText(String.valueOf(reading.getTemperature()));
-    dewPointField.setText(String.valueOf(reading.getDewPoint()));
+//    temperatureField.setText(String.valueOf(reading.getTemperature()));
+//    dewPointField.setText(String.valueOf(reading.getDewPoint()));
   }
 
   @Override

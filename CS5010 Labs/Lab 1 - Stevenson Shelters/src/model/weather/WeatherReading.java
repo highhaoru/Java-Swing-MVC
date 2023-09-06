@@ -64,4 +64,16 @@ public interface WeatherReading {
    */
   public int getWindChill();
 
+  /**
+   * Update the weather reading with new values.
+   *
+   * @param temperature the new temperature in degrees Celsius
+   * @param dewPoint    the new dew point in degrees Celsius
+   * @param windSpeed   the new wind speed in miles per hour
+   * @param totalRain   the new total amount of rain in inches
+   * @return a new WeatherReading object with updated values
+   * @throws IllegalArgumentException if any value is invalid
+   */
+  WeatherReading updateReading(double temperature, double dewPoint, double windSpeed,
+                               double totalRain) throws IllegalArgumentException;
 }

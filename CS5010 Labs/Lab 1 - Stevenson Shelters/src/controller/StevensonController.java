@@ -46,7 +46,7 @@ public class StevensonController implements WeatherController {
     updateModel(defaultReading);
 
     // Reset the view fields and labels
-    view.resetFields();  // This method needs to be implemented in your view class
+//    view.resetFields();  // This method needs to be implemented in your view class
   }
 
   // New method to fetch and display derived data

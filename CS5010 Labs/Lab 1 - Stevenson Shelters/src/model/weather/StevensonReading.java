@@ -113,6 +113,13 @@ public final class StevensonReading implements WeatherReading {
     return (int) Math.round(calculateWindChill());
   }
 
+  @Override
+  public WeatherReading updateReading(double temperature, double dewPoint, double windSpeed,
+                                      double totalRain) throws IllegalArgumentException {
+    // Create and return a new StevensonReading object with updated values
+    return new StevensonReading(temperature, dewPoint, windSpeed, totalRain);
+  }
+
   //Helper Section:
   //Saturation Vapor Pressure Calculation Helper
   private double calculateSaturationVaporPressure() {

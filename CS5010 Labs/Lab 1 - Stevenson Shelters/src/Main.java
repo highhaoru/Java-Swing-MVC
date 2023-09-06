@@ -19,7 +19,7 @@ public class Main {
    */
   public static void main(String[] args) {
     // Create a new WeatherReading model instance
-    WeatherReading model = new StevensonReading(20.0, 10.0, 5.0, 2.0);
+    WeatherReading model = new StevensonReading(1000.0, 1000.0, 500.0, 200.0);
 
     // Create a new WeatherView view instance
     WeatherView view = new StevensonView();
