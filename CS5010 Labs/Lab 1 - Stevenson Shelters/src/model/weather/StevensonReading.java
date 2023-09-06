@@ -6,9 +6,9 @@ import java.util.Objects;
  * This class represents a reading from a Stevenson Screen, an instrument used in meteorology.
  * It holds the temperature, dew point, wind speed, and total rain measurements.
  * The class implements the WeatherReading interface.
- * 
+ *
+ * <p></p>
  * @ author Hao Jin
- * @ date 2023-05-13
  */
 public final class StevensonReading implements WeatherReading {
   private final double temperature;
